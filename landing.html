@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>AI Agent Blue — AI-Powered Browser Automation Chrome Extension</title>
+  <meta name="description" content="AI Agent Blue automates your browser with AI. Navigate, click, type, remember — hands-free across any website. Supports Google Gemini, GPT-4o, and Groq. Free Chrome extension by Muhammad Shahzeb Malik.">
+  <meta name="keywords" content="AI browser automation, Chrome extension, AI agent, web automation, browser bot, Gemini Chrome extension, GPT-4o automation, Groq agent, browser AI, Muhammad Shahzeb Malik, AI Agent Blue, free AI tool, Pakistani developer">
+  <meta name="author" content="Muhammad Shahzeb Malik">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  <link rel="canonical" href="https://muhammadshahzebmalik786.github.io/ai-agent-blue/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://muhammadshahzebmalik786.github.io/ai-agent-blue/">
+  <meta property="og:title" content="AI Agent Blue — Automate Your Browser with AI">
+  <meta property="og:description" content="Lower your loads. AI Agent Blue is a Chrome extension that uses Gemini, GPT-4o or Groq to automate any website for you — navigate, click, type, remember.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="AI Agent Blue">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Agent Blue — AI Browser Automation">
+  <meta name="twitter:description" content="Free Chrome extension. Automate any website using Gemini, GPT-4o or Groq AI.">
+  <meta name="twitter:creator" content="@MuhammadShahzebMalik">
+
+  <!-- Schema.org Structured Data (Google Rich Results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AI Agent Blue",
+    "description": "AI-powered Chrome extension that automates your browser — navigate, click, type, and remember across any website using Gemini, GPT-4o, or Groq.",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": {
+      "@type": "Person",
+      "name": "Muhammad Shahzeb Malik",
+      "email": "malikshahzebabd@gmail.com",
+      "url": "https://github.com/muhammadShahzebMalik786"
+    },
+    "keywords": "AI browser automation, Chrome extension, Gemini, GPT-4o, Groq, web automation"
+  }
+  </script>
+
+  <meta name="theme-color" content="#050d1a">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #050d1a; --surface: #0d1f38; --blue: #1d6fdb;
+      --blue-glow: #4da3ff; --text: #e2eeff; --muted: #7ea3cc; --border: #1e3a5f;
+    }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: var(--blue-glow); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 40px; border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-size: 1.2rem; font-weight: 700;
+      background: linear-gradient(135deg, #4da3ff, #60caff, #a78bfa);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .nav-links { display: flex; gap: 24px; font-size: 0.875rem; color: var(--muted); }
+    .nav-links a { color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    .hero { text-align: center; padding: 80px 20px 60px; max-width: 760px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-block; background: rgba(29,111,219,0.15); border: 1px solid var(--blue);
+      border-radius: 20px; padding: 4px 14px; font-size: 0.75rem; color: var(--blue-glow);
+      margin-bottom: 20px; letter-spacing: 0.5px;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800;
+      background: linear-gradient(135deg, #4da3ff, #a78bfa);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1.2; margin-bottom: 20px;
+    }
+    .hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 560px; margin: 0 auto 36px; }
+    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .cta-primary {
+      background: var(--blue); color: #fff; padding: 12px 28px; border-radius: 10px;
+      font-weight: 600; font-size: 0.95rem; transition: background 0.2s, transform 0.15s;
+    }
+    .cta-primary:hover { background: #1558b8; transform: translateY(-2px); text-decoration: none; }
+    .cta-secondary {
+      background: transparent; color: var(--text); border: 1px solid var(--border);
+      padding: 12px 28px; border-radius: 10px; font-size: 0.95rem; transition: border-color 0.2s;
+    }
+    .cta-secondary:hover { border-color: var(--blue-glow); text-decoration: none; }
+
+    .features { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+    .section-label {
+      text-align: center; font-size: 0.75rem; color: var(--blue-glow);
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;
+    }
+    h2 { text-align: center; font-size: 1.8rem; font-weight: 700; margin-bottom: 40px; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .feature-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      padding: 22px; transition: border-color 0.2s, transform 0.2s;
+    }
+    .feature-card:hover { border-color: var(--blue); transform: translateY(-3px); }
+    .feature-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .feature-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+    .feature-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+    .providers {
+      text-align: center; padding: 40px 20px 60px;
+      background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .provider-badges { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
+    .provider-badge {
+      background: rgba(29,111,219,0.1); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 18px; font-size: 0.85rem; font-weight: 500;
+    }
+
+    .contact { max-width: 600px; margin: 60px auto; padding: 0 20px; text-align: center; }
+    .contact-cards { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+    .contact-card {
+      display: flex; align-items: center; gap: 8px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 10px; padding: 10px 18px;
+      font-size: 0.85rem; color: var(--text); transition: border-color 0.2s, transform 0.15s;
+    }
+    .contact-card:hover { border-color: var(--blue-glow); transform: translateY(-2px); text-decoration: none; }
+    .contact-card.whatsapp:hover { border-color: #25d366; }
+
+    footer {
+      text-align: center; padding: 24px; border-top: 1px solid var(--border);
+      font-size: 0.75rem; color: var(--muted);
+    }
+    footer strong { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-brand">🔵 AI Agent Blue</span>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#contact">Contact</a>
+      <a href="https://github.com/muhammadShahzebMalik786" target="_blank">GitHub</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">✨ Free Chrome Extension — v3.0</div>
+    <h1>Automate Your Browser.<br>Lower Your Loads.</h1>
+    <p class="hero-sub">
+      AI Agent Blue is a Chrome extension that uses AI to navigate, click, type,
+      and remember — fully automating any website for you. No code required.
+    </p>
+    <div class="cta-row">
+      <a href="https://github.com/muhammadShahzebMalik786" class="cta-primary" target="_blank">🐙 View on GitHub</a>
+      <a href="mailto:malikshahzebabd@gmail.com" class="cta-secondary">✉️ Contact Developer</a>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <p class="section-label">What it does</p>
+    <h2>Everything Your Browser Can Do — Automated</h2>
+    <div class="features-grid">
+      <article class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Smart Navigation</h3>
+        <p>AI navigates to any URL, handles redirects, and waits for pages to load — just like a human.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">🖱️</div>
+        <h3>Click & Type</h3>
+        <p>Clicks buttons, fills forms, and types text into any field — even React and Vue apps.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3>Memory Across Sites</h3>
+        <p>Remembers data from one website and uses it on another — extract, store, reuse.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">🧑‍💻</div>
+        <h3>Human Node</h3>
+        <p>Detects CAPTCHAs and pauses for you to solve them, then resumes automatically.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Multi-Provider AI</h3>
+        <p>Switch between Google Gemini, GitHub GPT-4o, and Groq — use whichever has free quota.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Auto Fallback</h3>
+        <p>Hits a rate limit? Automatically switches to the next available model and keeps going.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="providers">
+    <p class="section-label">Supported AI Engines</p>
+    <h2>Pick Your AI. We Handle the Rest.</h2>
+    <div class="provider-badges">
+      <span class="provider-badge">🔵 Google Gemini</span>
+      <span class="provider-badge">⚫ GitHub GPT-4o</span>
+      <span class="provider-badge">🟠 Groq (Llama / Mixtral)</span>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <p class="section-label">Developer</p>
+    <h2>Built by Muhammad Shahzeb Malik</h2>
+    <p style="color: var(--muted); font-size: 0.9rem; margin-top: 8px;">Pakistani developer. Open to collaboration, feedback, and freelance projects.</p>
+    <div class="contact-cards">
+      <a href="mailto:malikshahzebabd@gmail.com" class="contact-card">✉️ malikshahzebabd@gmail.com</a>
+      <a href="https://github.com/muhammadShahzebMalik786" class="contact-card" target="_blank">🐙 GitHub</a>
+      <a href="https://wa.me/923448970498" class="contact-card whatsapp" target="_blank">💬 WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 <strong>AI Agent Blue</strong> · Built by <strong>Muhammad Shahzeb Malik</strong> · Pakistan 🇵🇰</p>
+    <p style="margin-top: 6px;">
+      <a href="https://github.com/muhammadShahzebMalik786" target="_blank">GitHub</a> ·
+      <a href="mailto:malikshahzebabd@gmail.com">Email</a> ·
+      <a href="https://wa.me/923448970498" target="_blank">WhatsApp</a>
+    </p>
+  </footer>
+
+</body>
+</html>

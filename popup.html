@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>Agent Blue — Automates the browser. You don't lift a finger.</title>
+  <meta name="description" content="Agent Blue automates your browser with AI. Navigate, click, type, remember — hands-free. Gemini, GPT-4o & Groq. By Muhammad Shahzeb Malik.">
+  <meta name="keywords" content="AI browser automation, Chrome extension, AI agent, web automation, browser bot, GPT Chrome extension, Gemini automation, browser AI, Muhammad Shahzeb Malik, AI Agent Blue">
+  <meta name="author" content="Muhammad Shahzeb Malik">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph (Social Sharing) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ai agent Blue — Automates the browser. You don't lift a finger.">
+  <meta property="og:description" content="Ai agent Blue automates your browser with AI — navigate, click, type, and remember across any website. Built by Muhammad Shahzeb Malik.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Ai agent Blue">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ai agent Blue — Browser Automation with AI">
+  <meta name="twitter:description" content="Automates the browser. You don't lift a finger. Chrome extension by Muhammad Shahzeb Malik.">
+  <meta name="twitter:creator" content="@MuhammadShahzebMalik">
+
+  <!-- PWA / Chrome Extension Hints -->
+  <meta name="theme-color" content="#050d1a">
+  <meta name="application-name" content="Ai agent Blue">
+
+  <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <h1>Agent <span style="color:#4da3ff;">Blue</span></h1>
+        <span class="tagline">✦ Automates the browser. You don't lift a finger.</span>
+      </div>
+      <div class="header-right">
+        <span id="step-counter" class="step-counter" title="API calls used this session">Step 0</span>
+        <div class="status-indicator" id="status-indicator"></div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <label for="provider-select">AI Provider</label>
+      <select id="provider-select">
+        <option value="gemini">Google Gemini</option>
+        <option value="github">GitHub Models</option>
+        <option value="groq">Groq</option>
+        <option value="ollama">Ollama (Local)</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <label for="api-key" id="api-key-label">API Key (Gemini)</label>
+      <input type="password" id="api-key" placeholder="AIza...">
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <label for="model-select">AI Model</label>
+        <button id="fetch-models-btn" class="ghost-btn" style="font-size: 11px; padding: 2px 6px;" title="Fetch available models from API">Refresh</button>
+      </div>
+      <select id="model-select">
+        <!-- populated dynamically by popup.js -->
+      </select>
+    </div>
+
+    <div class="section">
+      <label for="goal">What should I do?</label>
+      <textarea id="goal" rows="3" placeholder="e.g. Go to gemini.google.com and generate a story about space, save it, then open an image generator..."></textarea>
+    </div>
+
+    <div class="button-row">
+      <button id="start-btn" class="primary-btn">▶ Start Agent</button>
+      <button id="stop-btn" class="danger-btn" style="display: none;">⏹ Stop Agent</button>
+    </div>
+
+    <!-- Human Node Banner – shown when agent needs human help -->
+    <div id="human-banner" class="human-banner" style="display: none;">
+      <div class="human-banner-icon">🧑‍💻</div>
+      <div class="human-banner-body">
+        <strong id="human-banner-title">Human Input Required</strong>
+        <span id="human-banner-reason">Please complete the CAPTCHA or login on the page.</span>
+      </div>
+      <button id="resume-btn" class="resume-btn">▶ Resume</button>
+    </div>
+
+    <div class="section logs-section">
+      <div class="section-header">
+        <label>Agent Logs</label>
+        <button id="clear-logs-btn" class="ghost-btn" title="Clear log history">Clear</button>
+      </div>
+      <div id="logs" class="logs"></div>
+    </div>
+
+    <div class="section memory-section">
+      <label>Memory Scratchpad</label>
+      <pre id="memory-view" class="memory-view">{}</pre>
+    </div>
+
+    <!-- Developer Identity / Contact Us -->
+    <div class="contact-section">
+      <div class="contact-header">
+        <span class="contact-built">Built by</span>
+        <strong class="contact-name">Muhammad Shahzeb Malik</strong>
+      </div>
+      <p class="contact-desc">Reach out anytime — I'm open to feedback, collabs &amp; projects.</p>
+      <div class="contact-grid">
+
+        <!-- Gmail -->
+        <a href="mailto:malikshahzebabd@gmail.com" class="contact-card gmail" title="malikshahzebabd@gmail.com">
+          <span class="contact-card-icon">
+            <svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="6" fill="#EA4335"/>
+              <path d="M8 14l16 11 16-11" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="8" y="14" width="32" height="22" rx="2" stroke="#fff" stroke-width="2.5" fill="none"/>
+            </svg>
+          </span>
+          <span class="contact-card-body">
+            <strong>Gmail</strong>
+            <small>malikshahzebabd@gmail.com</small>
+          </span>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/923448970498" target="_blank" class="contact-card whatsapp" title="+92 344 8970498">
+          <span class="contact-card-icon">
+            <svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="6" fill="#25D366"/>
+              <path d="M24 8C15.163 8 8 15.163 8 24c0 2.837.745 5.5 2.047 7.807L8 40l8.457-2.016A15.934 15.934 0 0024 40c8.837 0 16-7.163 16-16S32.837 8 24 8z" fill="#fff"/>
+              <path d="M19 17c-.5-1-1.5-.8-2 0-.5.8-.7 3.2 1.5 5.5 2.2 2.3 5 3.8 6.5 4 1.5.2 2.5-.5 3-1.5.5-1 0-1.8-.5-2.2l-2-1c-.5-.3-1-.1-1.3.3l-.5.7c-.3.4-.8.4-1.2.1C21 22 20 21 19.5 20l-.3-1c-.2-.5 0-1 .5-1.3l.8-.5c.4-.3.5-.8.2-1.2L19 17z" fill="#25D366"/>
+            </svg>
+          </span>
+          <span class="contact-card-body">
+            <strong>WhatsApp</strong>
+            <small>+92 344 8970498</small>
+          </span>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/muhammadShahzebMalik786" target="_blank" class="contact-card github" title="GitHub Profile">
+          <span class="contact-card-icon">
+            <svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="6" fill="#24292e"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M24 9C15.716 9 9 15.716 9 24c0 6.627 4.298 12.254 10.256 14.231.75.138 1.025-.325 1.025-.723 0-.356-.013-1.302-.02-2.556-4.17.906-5.051-2.011-5.051-2.011-.682-1.732-1.664-2.193-1.664-2.193-1.36-.929.103-.91.103-.91 1.504.106 2.296 1.544 2.296 1.544 1.337 2.291 3.508 1.629 4.363 1.246.136-.969.523-1.629.952-2.003-3.328-.379-6.828-1.664-6.828-7.407 0-1.637.585-2.976 1.544-4.025-.155-.38-.67-1.903.147-3.967 0 0 1.259-.403 4.125 1.537A14.34 14.34 0 0124 16.196c1.275.006 2.56.173 3.759.506 2.864-1.94 4.121-1.537 4.121-1.537.82 2.064.304 3.587.149 3.967.962 1.049 1.542 2.388 1.542 4.025 0 5.757-3.506 7.024-6.844 7.395.538.464 1.017 1.38 1.017 2.781 0 2.008-.018 3.625-.018 4.118 0 .401.271.868 1.031.72C34.706 36.25 39 30.625 39 24c0-8.284-6.716-15-15-15z" fill="#fff"/>
+            </svg>
+          </span>
+          <span class="contact-card-body">
+            <strong>GitHub</strong>
+            <small>muhammadShahzebMalik786</small>
+          </span>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/muhammad-shahzeb-malik-501a37253/" target="_blank" class="contact-card linkedin" title="LinkedIn Profile">
+          <span class="contact-card-icon">
+            <svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="6" fill="#0A66C2"/>
+              <path d="M14 19h4v14h-4V19zM16 17a2 2 0 100-4 2 2 0 000 4zM22 19h4v2h.05C26.65 19.75 28.4 19 30.5 19c4.5 0 5.5 2.96 5.5 6.8V33h-4v-6.5c0-1.55-.03-3.55-2.16-3.55-2.16 0-2.49 1.69-2.49 3.43V33h-4V19z" fill="#fff"/>
+            </svg>
+          </span>
+          <span class="contact-card-body">
+            <strong>LinkedIn</strong>
+            <small>Muhammad Shahzeb Malik</small>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
